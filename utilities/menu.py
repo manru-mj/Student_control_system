@@ -11,6 +11,7 @@ def print_menu():
 def select_option():
     print_menu()
     option = int(input("Type your option: "))
+    print()
     return option
 
 
