@@ -2,7 +2,6 @@ import utilities.menu as menu
 import utilities.other as other
 option=0
 students=[]
-#average=0
 
 if __name__ == "__main__":
     while True:

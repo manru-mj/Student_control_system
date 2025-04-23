@@ -58,6 +58,9 @@ def show_top3(student_list):
                 """)
     else:
         try:
+            for std in student_list:
+                std["average"] = float(std["average"])
+            
             student_list.sort(key=lambda k:k["average"],reverse=True)
             print("Student's Top 3")
             for i in range(0, 3):
@@ -87,7 +90,6 @@ def calculate_average_grade(student_list):
         overall_average = round(overall_average,2)
         print(f"The overall average grade is {overall_average}")
         print()
-    #return overall_average
 
 
 def export_to_file(file_path,student_list):
@@ -110,5 +112,3 @@ def import_from_file(file_path,t_list):
             t_list.append(row)
     print("Data has been imported from file Students List.csv")
     print()
-    #return t_list
-
