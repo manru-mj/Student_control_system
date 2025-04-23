@@ -19,6 +19,7 @@ if __name__ == "__main__":
             elif option == 5:
                 other.export_to_file("Students List.csv",students)
             elif option == 6:
+                students = []
                 other.import_from_file("Students List.csv",students)    
             elif option == 7:
                 break

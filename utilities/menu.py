@@ -7,7 +7,8 @@ def print_menu():
         5. Export to file
         6. Import from File
         7. Exit""")
-    
+
+
 def select_option():
     print_menu()
     option = int(input("Type your option: "))

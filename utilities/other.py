@@ -4,6 +4,7 @@ keys_list=["full_name", "last_name","first_name","class", "spanish_grade","engli
 
 def add_student(student_list):
     while True:
+        flag = True
         temp_student={}
         temp_average=0
         for i in range(1, len(data_list)-1):
@@ -22,9 +23,14 @@ def add_student(student_list):
                         print("Invalid Entry, type a value (0-100)")
         temp_student["full_name"] = f"{temp_student["last_name"]} {temp_student["first_name"]}"
         temp_student["full_name"] = temp_student["full_name"].title()
-        temp_student["average"] = temp_average/4
+        temp_student["average"] = str(temp_average/4)
         student_list.append(temp_student)
-        option = str(input("Add another student?(Y/N): "))    
+        while flag:
+            option = str(input("Add another student?(Y/N): "))    
+            if not (option == "N" or option == "n" or option == "Y" or option == "y"):
+                print("Invalid Entry")
+            else:
+                flag = False
         if option == "N" or option == "n":
             break
     return temp_student
@@ -104,4 +110,5 @@ def import_from_file(file_path,t_list):
             t_list.append(row)
     print("Data has been imported from file Students List.csv")
     print()
+    #return t_list
 
