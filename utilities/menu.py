@@ -13,20 +13,3 @@ def select_option():
     option = int(input("Type your option: "))
     print()
     return option
-
-
-
-def print_student_report():
-    print("Students Report")
-
-def calculate_top3():
-    print("Students Top3")
-
-def calculate_average_grade():
-    print("Students average grade")
-
-def export_to_file():
-    print("Export to File")
-
-def import_from_file():
-    print("Import from File")

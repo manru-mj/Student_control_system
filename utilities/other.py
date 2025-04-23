@@ -1,3 +1,4 @@
+import csv
 data_list=["Full name", "Last name","First name","Class", "Spanish grade","English grade", "History grade","Science grade", "Average grade"]
 keys_list=["full_name", "last_name","first_name","class", "spanish_grade","english_grade", "history_grade","science_grade","average"]
 
@@ -65,11 +66,42 @@ def show_top3(student_list):
             print()
 
 
+def calculate_average_grade(student_list):
+    overall_average=0
+    temp=0
+    count=0
+    if not student_list:
+        print("""No records have been added yet!
+            """)
+    else:
+        for i in student_list:
+            temp += float(i["average"])
+            count+=1
+        overall_average= temp/count
+        overall_average = round(overall_average,2)
+        print(f"The overall average grade is {overall_average}")
+        print()
+    #return overall_average
 
 
+def export_to_file(file_path,student_list):
+    if not student_list:
+        print("""No records have been added yet!
+            """)
+    else:
+        with open(file_path,'w',encoding = 'utf-8') as file:
+            writer = csv.DictWriter(file, keys_list)
+            writer.writeheader()
+            writer.writerows(student_list)
+        print("The file Students List.csv has been saved")
+        print()
 
-#student=[]
-#add_student(student)  
-#show_students_records(student)
-#print(student)
+
+def import_from_file(file_path,t_list):
+    with open(file_path, 'r') as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            t_list.append(row)
+    print("Data has been imported from file Students List.csv")
+    print()
 
